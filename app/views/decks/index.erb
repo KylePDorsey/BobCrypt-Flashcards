@@ -1,0 +1,6 @@
+<% @decks.each do |deck| %>
+    <form method= "post" action="/rounds">
+      <input type="hidden" value="<%= deck.id %>" name="deck_id">
+      <input type="submit" value="<%= deck.theme %>"><br>
+    </form>
+<% end %>
