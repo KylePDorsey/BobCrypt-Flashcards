@@ -6,7 +6,11 @@ get "/users/login" do
   erb :'users/login'
 end
 
-
+get '/users/:id' do
+  restrict_to_user
+  @user = current_user
+  erb :'users/show'
+end
 
 post '/users/login' do
   @user = User.authenticate(params['email'], params['password'])
@@ -17,6 +21,12 @@ post '/users/login' do
     @errors = ["Invalid credentials"]
     erb :"users/login"
   end
+end
+
+delete '/users/login' do
+  restrict_to_user
+  session[:id] = nil
+  redirect '/'
 end
 
 post '/users' do
