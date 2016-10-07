@@ -4,6 +4,6 @@ class Round < ActiveRecord::Base
   belongs_to :deck
   has_many :guesses
 
-  validates :user_id, :deck_id, :presence => true
+  validates :deck_id, :presence => true
 
 end
