@@ -1,10 +1,7 @@
 <div class="container">
-  <h1>New User Registration</h1>
+  <h2>New User Registration</h2>
   <form method="post" action="/users">
-    <label for="email">Email:</label><br>
-    <input type="email" name="user[email]"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" name="user[password]"><br>
+    <%= erb :'/users/_user_form' %>
     <input type="submit" value="Register">
   </form>
 </div>
