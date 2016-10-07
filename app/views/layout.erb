@@ -11,13 +11,37 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+          
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 
-  <title></title>
+  <title>BobCrypt</title>
 </head>
 <body>
-  <%= yield %>
+  <nav>
+    <div class=" nav-wrapper">
+      <a href="#" class="brand-logo">BobCrypt</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if logged_in? %>
+          <li><a href="/add_hidden_form_to_delete_session_id">Logout</a></li>
+          <li><a href="/users/<%= current_user.id %>"><i class="material-icons left">perm_identity</i><%= current_user.email %></a></li>
+        <% else %>
+          <li><a href="/users/login"><i class="material-icons left">perm_identity</i>Login</a></li>
+          <li><a href="/users/new">Sign Up</a></li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    <%= yield %>
+  <div>
 </body>
 </html>
