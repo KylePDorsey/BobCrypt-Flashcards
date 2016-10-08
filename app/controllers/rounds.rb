@@ -6,6 +6,18 @@ get '/rounds/:id' do
   if potential_cards.length > 0
     card_to_display = potential_cards.sample
     redirect "/rounds/#{round.id}/cards/#{card_to_display.id}"
+  else
+    cards.each do |card|
+      guesses = card.guesses.where(round_id: round.id)
+      if guesses.last.incorrect?
+        potential_cards << card
+      end
+    end
+
+    if potential_cards.length > 0
+      card_to_display = potential_cards.sample
+      redirect "/rounds/#{round.id}/cards/#{card_to_display.id}"
+    end
   end
   redirect "/rounds/#{round.id}/complete"
 end
