@@ -22,6 +22,8 @@ end
 
 get '/rounds/:id/complete' do
   @round = Round.find_by(id: params[:id])
+
   @correct_first = @round.count_correct_first_guesses
+
   erb :'/rounds/show'
 end
