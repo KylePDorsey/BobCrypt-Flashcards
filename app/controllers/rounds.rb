@@ -31,5 +31,12 @@ post '/rounds' do
   redirect "/rounds/#{@round.id}"
 end
 
-get 'rounds/:id/complete' do
+get '/rounds/:id/complete' do
+  @round = Round.find_by(id: params[:id])
+  deck_length = @round.deck.cards.count
+  guesses = Guess.where(round_id: @round.id)
+  first_guesses = guesses.limit(deck_length)
+  correct_guesses = first_guesses.to_a.select { |guess| guess.correct? }
+  @correct_first = correct_guesses.count
+  erb :'/rounds/show'
 end
