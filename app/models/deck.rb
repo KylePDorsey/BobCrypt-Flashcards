@@ -3,5 +3,5 @@ class Deck < ActiveRecord::Base
   has_many :cards
   has_many :rounds
 
-  validates :theme, :presence => true
+  validates :theme, :presence => true, :uniqueness => true
 end

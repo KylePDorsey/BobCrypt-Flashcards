@@ -1,3 +1,7 @@
+before do
+  @user = current_user
+end
+
 get '/users/new' do
   erb :"users/new"
 end
@@ -7,13 +11,15 @@ get "/users/login" do
 end
 
 get '/users/:id' do
-  restrict_to_user
-  @user = current_user
+  restrict_to_user(params[:id].to_i)
+  @decks = Deck.all
   erb :'users/show'
 end
 
 post '/users/login' do
-  @user = User.authenticate(params['email'], params['password'])
+  @email = params['user']['email']
+  @password = params['user']['password']
+  @user = User.authenticate(@email, @password)
   if @user
     session[:id] = @user.id
     redirect '/'
@@ -24,12 +30,17 @@ post '/users/login' do
 end
 
 delete '/users/login' do
-  restrict_to_user
   session[:id] = nil
   redirect '/'
 end
 
 post '/users' do
-  User.create(params['user'])
-  redirect '/'
+  @user = User.create(params['user'])
+  if @user.valid?
+    session[:id] = @user.id
+    redirect '/'
+  else
+    @errors = @user.errors.full_messages
+    erb :'/users/new'
+  end
 end
