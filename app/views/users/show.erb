@@ -1,0 +1,9 @@
+<h2><%= @user.email %>'s profile page</h2>
+
+
+<% @decks.each do |deck| %>
+  <h3><%= deck.theme %></h3>
+  <!-- generate table of users round stats for each deck -->
+<% end %>
+
+<%= erb :_logout_button %>
