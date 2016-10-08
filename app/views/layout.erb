@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- 
+  <!--
     normalize.css removes cross-browser differences in defaults, e.g.,
     differences in how form elements appear between Firefox and IE
     See: http://necolas.github.com/normalize.css/
@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-          
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
   <!-- Compiled and minified JavaScript -->
@@ -29,7 +29,12 @@
       <a href="#" class="brand-logo">BobCrypt</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if logged_in? %>
-          <li><a href="/add_hidden_form_to_delete_session_id">Logout</a></li>
+          <li>
+            <form method="post" action="/users/logout">
+              <input type="hidden" name="_method" value="delete">
+              <input type="submit" value="Logout">
+            </form>
+          </li>
           <li><a href="/users/<%= current_user.id %>"><i class="material-icons left">perm_identity</i><%= current_user.email %></a></li>
         <% else %>
           <li><a href="/users/login"><i class="material-icons left">perm_identity</i>Login</a></li>
