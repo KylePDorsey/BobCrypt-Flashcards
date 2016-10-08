@@ -7,4 +7,11 @@ class Round < ActiveRecord::Base
 
   validates :deck_id, :presence => true
 
+  def count_correct_first_guesses
+    deck_length = self.deck.cards.count
+    round_guesses = Guess.where(round_id: self.id)
+    first_guesses = round_guesses.limit(deck_length)
+    correct_first_guesses = first_guesses.find_all { |guess| guess.correct? }
+    correct_first_guesses.count
+  end
 end
