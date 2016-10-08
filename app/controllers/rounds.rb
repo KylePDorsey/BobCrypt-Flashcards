@@ -1,7 +1,13 @@
 get '/rounds/:id' do
-  @round = Round.find(params[:id])
-  @cards = Card.where(deck_id: @round.deck_id)
-  @guessed_cards = @round.guessed_cards
+  round = Round.find(params[:id])
+  cards = Card.where(deck_id: round.deck_id)
+  guessed_cards = round.guessed_cards
+  potential_cards = cards - guessed_cards
+  if potential_cards.length > 0
+    card_to_display = potential_cards.sample
+    redirect "/rounds/#{round.id}/cards/#{card_to_display.id}"
+  end
+  redirect "/rounds/#{round.id}/complete"
 end
 
 post '/rounds' do

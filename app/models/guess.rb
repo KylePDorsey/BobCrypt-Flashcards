@@ -3,5 +3,5 @@ class Guess < ActiveRecord::Base
   belongs_to :card
   belongs_to :round
 
-  validates :card_id, :potential_answer, :presence => true
+  validates :card_id, :presence => true
 end
