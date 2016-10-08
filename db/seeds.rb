@@ -13,3 +13,4 @@ card_seeds = [
 
 card_seeds.each { |card_attributes| Card.create!(card_attributes) }
 
+Guess.create(card_id: 1, round_id: 1)
