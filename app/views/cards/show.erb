@@ -1,0 +1,12 @@
+<div class="container">
+  <h4><%= @card.deck.theme %></h4><br><br><br>
+  <h5 class="question"><%= @card.question %></h5>
+  <form method="post" action="/guesses">
+    <input type="hidden" name="guess[round_id]" value="<%= @round.id %>">
+    <input type="hidden" name="guess[card_id]" value="<%= @card.id %>">
+    <label for="answer">Fill in your answer:</label><br>
+    <input type="text" name="guess[potential_answer]"><br>
+    <input type="submit" value="Order Up!">
+  </form>
+
+</div>
