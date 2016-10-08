@@ -22,10 +22,8 @@ end
 
 get '/rounds/:id/complete' do
   @round = Round.find_by(id: params[:id])
-  deck_length = @round.deck.cards.count
-  round_guesses = Guess.where(round_id: @round.id)
-  first_guesses = round_guesses.limit(deck_length)
-  correct_first_guesses = first_guesses.find_all.correct?
-  @correct_first = correct_first_guesses.count
+
+  @correct_first = @round.count_correct_first_guesses
+
   erb :'/rounds/show'
 end
