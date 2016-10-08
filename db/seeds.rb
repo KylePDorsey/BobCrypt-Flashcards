@@ -34,18 +34,18 @@ guess_seeds = [
   {card_id: 5, round_id: 2, potential_answer: "You don't"},
   {card_id: 6, round_id: 2, potential_answer: "Mercury"},
 
-  {card_id: 1, round_id: 1, potential_answer: "wrong"},
-  {card_id: 2, round_id: 1, potential_answer: "wrong"},
-  {card_id: 3, round_id: 1, potential_answer: "wrong"},
-  {card_id: 1, round_id: 1, potential_answer: "wrong"},
-  {card_id: 2, round_id: 1, potential_answer: "cold"},
-  {card_id: 3, round_id: 1, potential_answer: "Thursday"},
-  {card_id: 4, round_id: 1, potential_answer: "13"},
-  {card_id: 5, round_id: 1, potential_answer: "what that"},
-  {card_id: 6, round_id: 1, potential_answer: "The moon"},
-  {card_id: 4, round_id: 1, potential_answer: "12"},
-  {card_id: 5, round_id: 1, potential_answer: "You don't"},
-  {card_id: 6, round_id: 1, potential_answer: "Mercury"}
+  {card_id: 1, round_id: 3, potential_answer: "wrong"},
+  {card_id: 2, round_id: 3, potential_answer: "wrong"},
+  {card_id: 3, round_id: 3, potential_answer: "wrong"},
+  {card_id: 1, round_id: 3, potential_answer: "wrong"},
+  {card_id: 2, round_id: 3, potential_answer: "cold"},
+  {card_id: 3, round_id: 3, potential_answer: "Thursday"},
+  {card_id: 4, round_id: 3, potential_answer: "13"},
+  {card_id: 5, round_id: 3, potential_answer: "what that"},
+  {card_id: 6, round_id: 3, potential_answer: "The moon"},
+  {card_id: 4, round_id: 3, potential_answer: "12"},
+  {card_id: 5, round_id: 3, potential_answer: "You don't"},
+  {card_id: 6, round_id: 3, potential_answer: "Mercury"}
 ]
 
 guess_seeds.each { |guess| Guess.create!(guess) }
