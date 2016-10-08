@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   # Remember to create a migration!
   has_many :rounds
+  has_many :decks_played, :through => :rounds, :source => :deck
 
   validates :email, :presence => true, :uniqueness => true
   validates :password_hash, :presence => true
