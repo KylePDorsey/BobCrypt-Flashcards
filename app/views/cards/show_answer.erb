@@ -1,0 +1,16 @@
+<div class="container">
+  <h4><%= @card.deck.theme %></h4><br><br><br>
+  <h5 class="question"><%= @card.question %></h5>
+
+  <% if @guess.correct? %>
+    <p>You are correct</p>
+  <% else %>
+    <p>You are incorrect, the correct answer is : <%= @card.answer %></p>
+  <% end %>
+
+
+  <form method="get" action="/rounds/<%= @round.id %>">
+    <input type="hidden" name="guess[round_id]" value="<%= @round.id %>">
+    <input type="submit" value="Next Question">
+  </form>
+</div>

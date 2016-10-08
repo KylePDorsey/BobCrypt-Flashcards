@@ -33,7 +33,7 @@
             <form method="post" action="/users/logout">
               <input type="hidden" name="_method" value="delete">
               <input type="submit" value="Logout">
-            </form
+            </form>
           </li>
           <li><a href="/users/<%= current_user.id %>"><i class="material-icons left">perm_identity</i><%= current_user.email %></a></li>
         <% else %>
