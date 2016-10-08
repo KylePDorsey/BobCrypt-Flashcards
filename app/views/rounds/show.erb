@@ -1,0 +1,10 @@
+<div class="container">
+<h4><%= @round.deck.theme %></h4><br><br><br>
+
+ <p>You've completed a round of <%= @round.deck.theme %>. You answered <%= @correct_first %> of <%= @round.deck.cards.count %> correctly on the first try. You guessed a total of <%= @round.guesses.count %> times.</p>
+
+
+  <form method="get" action="/decks">
+    <input type="submit" value="Play New Round">
+  </form>
+</div>
