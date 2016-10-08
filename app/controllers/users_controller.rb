@@ -29,7 +29,7 @@ post '/users/login' do
   end
 end
 
-delete '/users/login' do
+delete '/users/logout' do
   session[:id] = nil
   redirect '/'
 end

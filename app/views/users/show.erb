@@ -12,7 +12,7 @@
     </tr>
     <% @user.rounds.where(deck_id: deck.id).each do |round| %>
     <tr>
-      <td><%= round.created_at %></td>
+      <td><%= round.created_at.strftime("%m/%d/%Y") %></td>
       <td><%= deck.cards.count %></td>
       <td><%=  %></td>
       <td><%= round.guesses.count %></td>
