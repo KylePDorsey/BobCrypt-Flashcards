@@ -1,10 +1,20 @@
-<div class="container">
-<h4><%= @round.deck.theme %></h4><br><br><br>
-
- <p>You've completed a round of <%= @round.deck.theme %>. You answered <%= @correct_first %> of <%= @round.deck.cards.count %> correctly on the first try. You guessed a total of <%= @round.guesses.count %> times.</p>
-
-
-  <form method="get" action="/decks">
-    <input type="submit" value="Play New Round">
-  </form>
+<div class="card grey lighten-2">
+  <div class="card-image waves-effect waves-block waves-light">
+    <img class="activator" src="https://media.giphy.com/media/F4P33mrsre3Ha/giphy.gif">
+  </div>
+  <div class="card-content">
+    <span class="card-title activator grey-text text-darken-4"><%= @round.deck.theme %><i class="material-icons right">more_vert</i></span>
+     <p>You've completed a round of <%= @round.deck.theme %>. You answered <%= @correct_first %> of <%= @round.deck.cards.count %> correctly on the first try. You guessed a total of <%= @round.guesses.count %> times.</p>
+    <p><a href="/">Play new deck</a></p>
+  </div>
+  <div class="card-reveal">
+    <span class="card-title grey-text text-darken-4">Review Questions and Answers<i class="material-icons right">close</i></span>
+    <ul>
+    	<% @round.deck.cards.each do |card|%>
+    		<li>Question:<%= card.question %>:</li>
+    		<li>Correct Answer:<%= card.answer %></li><br>
+    	<% end %>
+    </ul>
+  </div>
 </div>
+

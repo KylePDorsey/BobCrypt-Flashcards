@@ -1,11 +1,15 @@
 <br>
+<h3>Deck List:</h3>
 <br>
 <% @decks.each do |deck| %>
   <div class="collection">
     <form method= "post" action="/rounds">
       <input type="hidden" value="<%= deck.id %>" name="deck_id">
-      <input class="collection-item boredless waves-effect waves-teal btn-flat"type="submit" value="<%= deck.theme %>"> <span class="badge"><%= deck.cards.count %></span><br>
+      <input class="collection-item boredless waves-effect waves-teal btn-flat"type="submit" value="<%= deck.theme %>"> <span class="badge">Questions in this deck: <%= deck.cards.count %></span><br>
     </form>
   </div>
 <% end %>
+<div class="video-container">
+	<iframe width="853" height="480"  src="https://www.youtube.com/embed/FXEoe8_CcbM" frameborder="0" allowfullscreen></iframe>
+</div>
 

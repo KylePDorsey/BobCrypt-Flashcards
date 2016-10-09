@@ -25,14 +25,14 @@
 </head>
 <body>
   <nav>
-    <div class=" nav-wrapper">
+    <div class=" nav-wrapper grey darken-2">
       <a href="/" class="brand-logo">BobCrypt</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
         <% if logged_in? %>
           <li>
             <form method="post" action="/users/logout">
               <input type="hidden" name="_method" value="delete">
-              <input type="submit" value="Logout">
+              <input class="grey darken-2" type="submit" value="Logout">
             </form>
           </li>
           <li><a href="/users/<%= current_user.id %>"><i class="material-icons left">perm_identity</i><%= current_user.email %></a></li>
@@ -45,7 +45,7 @@
   </nav>
 
 
-  <div class="container">
+  <div class="container white">
     <%= yield %>
   <div>
 </body>

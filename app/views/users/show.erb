@@ -1,9 +1,11 @@
-<h3><%= @user.email %>'s profile page</h3>
+
+
+<h4><%= @user.email %>'s profile page</h4><br><br>
 
 
 <% @user.decks_played.distinct.each do |deck| %>
-  <h4><%= deck.theme %></h4>
-  <table>
+  <h5><%= deck.theme %></h5>
+  <table class="bordered striped">
     <tr>
       <th>Date</th>
       <th>Cards in Deck</th>
@@ -20,7 +22,7 @@
     </tr>
 
     <% end %>
-
+  </table>
 <% end %>
 
 <%= erb :_logout_button %>
