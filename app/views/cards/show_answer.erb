@@ -1,16 +1,47 @@
-<div class="container">
-  <h4><%= @card.deck.theme %></h4><br><br><br>
-  <h5 class="question"><%= @card.question %></h5>
 
+<div class="col s12 m7">
+  <h2 class="header"><%= @card.deck.theme %></h2>
+  <div class="card horizontal">
   <% if @guess.correct? %>
-    <p>You are correct</p>
+
+    <div class="card-image">
+      <img src="http://www.brooklynvegan.com/files/img/bp/bob-burger.jpg">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <p><%= @card.question %>?</p>
+        <p>You are correct!</p>
+      </div>
+      <div class="card-action">
+        <form method="get" action="/rounds/<%= @round.id %>">
+          <input type="hidden" name="guess[round_id]" value="<%= @round.id %>">
+          <input class="btn waves-effect waves-light grey darken-4"  type="submit" value="Next Question">
+        </form>
+      </div>
+    </div>
+  
+
   <% else %>
-    <p>You are incorrect, the correct answer is : <%= @card.answer %></p>
+
+    <div class="card-image">
+      <img src="http://vignette4.wikia.nocookie.net/bobsburgerpedia/images/8/82/S5E01.078_The_Boys_are_Disappointed.png/revision/latest?cb=20150521182525">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <p><%= @card.question %>?</p>
+        <p>You are incorrect, the correct answer is : <%= @card.answer %></p>
+      </div>
+      <div class="card-action">
+        <form method="get" action="/rounds/<%= @round.id %>">
+          <input type="hidden" name="guess[round_id]" value="<%= @round.id %>">
+          <input class="btn waves-effect waves-light grey darken-4" type="submit" value="Next Question">
+        </form>
+      </div>
+    </div>
+
+
+
+
   <% end %>
-
-
-  <form method="get" action="/rounds/<%= @round.id %>">
-    <input type="hidden" name="guess[round_id]" value="<%= @round.id %>">
-    <input type="submit" value="Next Question">
-  </form>
+  </div>
 </div>
